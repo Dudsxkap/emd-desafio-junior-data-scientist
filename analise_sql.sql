@@ -38,7 +38,7 @@ LIMIT 1;
 
 
 -- 5) Existe algum chamado aberto nesse dia que não foi associado a um bairro ou subprefeitura na tabela de bairros? Se sim, por que isso acontece?
--- Resposta: Existe 1 chamado que não possui id_bairro (id 18516246), logo, não possui bairro associado. Isso se deve pelo fato de ser uma chamada do tipo Ônibus, sendo assim, não possui necessariamente uma localização fixa para o chamado.
+-- Resposta: Existe 1 chamado que não possui id_bairro (id 18516246), logo, não possui bairro associado. Isso se deve pelo fato de ser um chamado do tipo "Ônibus", sendo assim, não possui necessariamente uma localização fixa para o chamado.
 -- Query:
 SELECT * FROM datario.administracao_servicos_publicos.chamado_1746 
 WHERE DATE(data_inicio) = '2023-04-01' AND id_bairro IS NULL;
