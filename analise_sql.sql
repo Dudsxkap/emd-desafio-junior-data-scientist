@@ -86,7 +86,7 @@ LIMIT 1;
 
 
 -- 10) Compare as médias diárias de chamados abertos desse subtipo durante os eventos específicos (Reveillon, Carnaval e Rock in Rio) e a média diária de chamados abertos desse subtipo considerando todo o período de 01/01/2022 até 31/12/2023.
--- Resposta: A média diária de chamados no período de 01/01/2022 até 31/12/2023 foi de 58.09 chamados, a média do Reveillon foi de 45.67 chamados diários, a do Carnaval foi de 60.25 chamados diários e a do Rock in Rio foi de 119.14 chamados diários. Assim, ao compararmos as médias temos que: a média diária do Carnaval foi 3.72% maior que a média diária anual; a média diária do Reveillon foi 21.38% menor que a média diária anual; e a média diária do Rock in Rio foi 105.1% maior que a média diária anual. 
+-- Resposta: A média diária de chamados no período de 01/01/2022 até 31/12/2023 foi de 58.09 chamados, a média do Reveillon foi de 45.67 chamados diários, a do Carnaval foi de 60.25 chamados diários e a do Rock in Rio foi de 119.14 chamados diários. Assim, ao compararmos as médias temos que: a média diária do Carnaval foi 3.72% maior que a média diária do período; a média diária do Reveillon foi 21.38% menor que a média diária do período; e a média diária do Rock in Rio foi 105.1% maior que a média diária do período.
 -- Query:
 WITH duracao_eventos AS (
   SELECT evento, SUM(DATE_DIFF(data_final, data_inicial, DAY)+1) AS total_dias FROM datario.turismo_fluxo_visitantes.rede_hoteleira_ocupacao_eventos
@@ -101,9 +101,9 @@ media_diaria_eventos AS (
   GROUP BY eventos.evento, duracao_eventos.total_dias
 ),
 media_total AS (
-  SELECT ROUND(COUNT(*)/(DATE_DIFF('2023-12-31', '2022-01-01', DAY)+1), 2) AS media_diaria_anual
+  SELECT ROUND(COUNT(*)/(DATE_DIFF('2023-12-31', '2022-01-01', DAY)+1), 2) AS media_diaria_periodo
   FROM datario.administracao_servicos_publicos.chamado_1746
   WHERE subtipo = 'Perturbação do sossego' AND DATE(data_inicio) BETWEEN '2022-01-01' AND '2023-12-31'
 )
-SELECT *, ROUND((media_diaria_evento*100)/media_diaria_anual - 100, 2) AS porcentagem_variacao FROM media_diaria_eventos
+SELECT *, ROUND((media_diaria_evento*100)/media_diaria_periodo - 100, 2) AS porcentagem_variacao FROM media_diaria_eventos
 JOIN media_total ON 1=1;
