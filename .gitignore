@@ -2,6 +2,6 @@
 .venv
 env/
 venv/
-datasets_importados/
+datasets_exportados/
 .idea
 *.iws /out/

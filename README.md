@@ -34,10 +34,12 @@ Por fim, para executar as análises realizadas via Python, acesse o [notebook](a
 
 ### Visualização dos dados
 
- As visualizações podem ser encontradas no arquivo [analise_data_rio.pbix](analise_data_rio.pbix). Para a construção das visualizações, foram utilizados os dados de chamados abertos no período entre 01/01/2022 e 31/12/2023. 
+As visualizações podem ser encontradas no arquivo [analise_data_rio.pbix](analise_data_rio.pbix). Para a construção das visualizações, foram utilizados os dados de chamados abertos no período entre 01/01/2022 e 31/12/2023. 
+
+Devido à grande quantidade de dados na tabela `chamado_1746`, os dados foram exportados via arquivos CSVs utilizando Pandas. O notebook desenvolvido para exportação dos dados pode ser encontrado [aqui](exportacao_arquivos.ipynb).
 
 Por fim, foi utilizado um [arquivo](https://www.data.rio/datasets/dc94b29fc3594a5bb4d297bee0c9a3f2/explore) GeoJSON contendo o limite de bairros do município do Rio de Janeiro para a construção de um visual de mapa de formas.
 
-![Power bi 1](https://github.com/Dudsxkap/emd-desafio-junior-data-scientist/assets/29288177/bed0ad57-4756-40f5-8c09-9c6429b46f39)
+<img src="https://github.com/Dudsxkap/emd-desafio-junior-data-scientist/assets/29288177/bed0ad57-4756-40f5-8c09-9c6429b46f39" width="700" height="390">
 
-![Power bi 2](https://github.com/Dudsxkap/emd-desafio-junior-data-scientist/assets/29288177/a75263d9-ad1f-429f-ac6b-75805466daa4)
+<img src="https://github.com/Dudsxkap/emd-desafio-junior-data-scientist/assets/29288177/a75263d9-ad1f-429f-ac6b-75805466daa4" width="700" height="390">
