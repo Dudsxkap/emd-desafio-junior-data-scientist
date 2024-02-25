@@ -2,5 +2,6 @@
 .venv
 env/
 venv/
+datasets_importados/
 .idea
 *.iws /out/
